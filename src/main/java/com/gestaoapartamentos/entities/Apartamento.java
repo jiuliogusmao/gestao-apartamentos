@@ -2,7 +2,6 @@ package com.gestaoapartamentos.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,20 +15,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode
-@Table(name = "apartamento")
+@Entity
+@Table(name = "tb_apartamento")
 public class Apartamento implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private UUID id;
+	private Long id;
 	
 	@Column(nullable = false)
 	private int numeroApartamento;
@@ -48,6 +47,13 @@ public class Apartamento implements Serializable{
 	
 	@Column(nullable =false)
 	private Date dataDisponibilidade;
+
+	@Override
+	public String toString() {
+		return "Apartamento [id=" + id + ", numeroApartamento=" + numeroApartamento + ", disponivel=" + disponivel
+				+ ", tipoImovel=" + tipoImovel + ", valorAluguel=" + valorAluguel + ", dataVencimento=" + dataVencimento
+				+ ", dataDisponibilidade=" + dataDisponibilidade + "]";
+	}
 	
 	
 	
