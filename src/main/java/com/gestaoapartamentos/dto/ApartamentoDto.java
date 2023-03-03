@@ -1,7 +1,6 @@
 package com.gestaoapartamentos.dto;
 
 import java.util.Date;
-import java.util.UUID;
 
 import com.gestaoapartamentos.entities.Apartamento;
 
@@ -16,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ApartamentoDto {
 
-	private UUID id;
+	private Long id;
 	private int numeroApartamento;
 	private boolean disponivel;
 	private String tipoImovel;
