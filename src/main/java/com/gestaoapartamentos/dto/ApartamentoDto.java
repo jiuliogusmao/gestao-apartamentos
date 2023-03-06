@@ -3,6 +3,7 @@ package com.gestaoapartamentos.dto;
 import java.util.Date;
 
 import com.gestaoapartamentos.entities.Apartamento;
+import com.gestaoapartamentos.entities.Edificio;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,11 +17,11 @@ import lombok.Setter;
 public class ApartamentoDto {
 
 	private Long id;
+	private Edificio edificio;
 	private int numeroApartamento;
 	private boolean disponivel;
 	private String tipoImovel;
 	private double valorAluguel;
-	private Date dataVencimento;
 	private Date dataDisponibilidade;
 	
 	public ApartamentoDto(Apartamento apartamento) {
@@ -28,7 +29,6 @@ public class ApartamentoDto {
 		this.numeroApartamento = apartamento.getNumeroApartamento();
 		this.disponivel = apartamento.isDisponivel();
 		this.tipoImovel = apartamento.getTipoImovel();
-		this.dataVencimento = apartamento.getDataVencimento();
 		this.dataDisponibilidade = apartamento.getDataDisponibilidade();
 	}
 	
