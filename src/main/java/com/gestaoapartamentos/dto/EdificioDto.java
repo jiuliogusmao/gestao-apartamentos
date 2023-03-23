@@ -1,5 +1,8 @@
 package com.gestaoapartamentos.dto;
 
+import java.util.List;
+
+import com.gestaoapartamentos.entities.Apartamento;
 import com.gestaoapartamentos.entities.Edificio;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +21,7 @@ public class EdificioDto {
 	private String endereco;
 	private int numeroApartamentos;
 	private int numeroAndares;
+	private List<Apartamento> apartamentos;
 	
 	public EdificioDto(Edificio edificio) {
 		this.id = edificio.getId();
@@ -25,5 +29,6 @@ public class EdificioDto {
 		this.endereco = edificio.getEndereco();
 		this.numeroApartamentos = edificio.getNumeroApartamentos();
 		this.numeroAndares = edificio.getNumeroAndares();
+		this.apartamentos = edificio.getApartamentos();
 		}
 }

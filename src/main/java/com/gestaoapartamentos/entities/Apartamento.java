@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -33,7 +34,9 @@ public class Apartamento implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
 	@ManyToOne
+	@JoinColumn(name = "edificio")
 	private Edificio edificio;
 		
 	@Column(nullable = false)
@@ -51,5 +54,16 @@ public class Apartamento implements Serializable{
 	@Column(nullable =false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataDisponibilidade;
+	
+	
+
+	@Override
+	public String toString() {
+		return "Apartamento [id=" + id + ", edificio=" + edificio + ", numeroApartamento=" + numeroApartamento
+				+ ", disponivel=" + disponivel + ", tipoImovel=" + tipoImovel + ", valorAluguel=" + valorAluguel
+				+ ", dataDisponibilidade=" + dataDisponibilidade + "]";
+	}
+	
+	
 
 }

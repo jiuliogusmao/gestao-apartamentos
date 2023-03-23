@@ -17,7 +17,7 @@ import lombok.Setter;
 public class ApartamentoDto {
 
 	private Long id;
-	private Edificio edificio;
+	String edificio;
 	private int numeroApartamento;
 	private boolean disponivel;
 	private String tipoImovel;
@@ -26,10 +26,12 @@ public class ApartamentoDto {
 	
 	public ApartamentoDto(Apartamento apartamento) {
 		this.id = apartamento.getId();
+		this.edificio = apartamento.getEdificio().getNome();
 		this.numeroApartamento = apartamento.getNumeroApartamento();
 		this.disponivel = apartamento.isDisponivel();
 		this.tipoImovel = apartamento.getTipoImovel();
 		this.dataDisponibilidade = apartamento.getDataDisponibilidade();
 	}
+
 	
 }
