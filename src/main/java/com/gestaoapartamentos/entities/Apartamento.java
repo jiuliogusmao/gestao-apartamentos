@@ -3,11 +3,15 @@ package com.gestaoapartamentos.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -30,6 +34,11 @@ public class Apartamento implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	@ManyToOne
+	@JoinColumn(name = "edificio")
+	private Edificio edificio;
+		
 	@Column(nullable = false)
 	private int numeroApartamento;
 	
@@ -43,18 +52,18 @@ public class Apartamento implements Serializable{
 	private double valorAluguel;
 	
 	@Column(nullable =false)
-	private Date dataVencimento;
-	
-	@Column(nullable =false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataDisponibilidade;
+	
+	
 
 	@Override
 	public String toString() {
-		return "Apartamento [id=" + id + ", numeroApartamento=" + numeroApartamento + ", disponivel=" + disponivel
-				+ ", tipoImovel=" + tipoImovel + ", valorAluguel=" + valorAluguel + ", dataVencimento=" + dataVencimento
+		return "Apartamento [id=" + id + ", edificio=" + edificio + ", numeroApartamento=" + numeroApartamento
+				+ ", disponivel=" + disponivel + ", tipoImovel=" + tipoImovel + ", valorAluguel=" + valorAluguel
 				+ ", dataDisponibilidade=" + dataDisponibilidade + "]";
 	}
 	
 	
-	
+
 }
