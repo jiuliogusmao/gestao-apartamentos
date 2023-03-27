@@ -35,9 +35,6 @@ public class Apartamento implements Serializable{
 	private Long id;
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "edificio")
-	private Edificio edificio;
 		
 	@Column(nullable = false)
 	private int numeroApartamento;
@@ -55,6 +52,9 @@ public class Apartamento implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataDisponibilidade;
 	
+	@ManyToOne
+	@JoinColumn(name = "edificio")
+	private Edificio edificio;
 	
 
 	@Override

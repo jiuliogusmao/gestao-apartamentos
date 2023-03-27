@@ -35,5 +35,10 @@ public class EdificioController {
 	public ResponseEntity<Object> listarEdificios(){
 		return edificioService.listarEdificios();
 	}
+        
+        @GetMapping("/{nome}")
+        public ResponseEntity<Object> buscarEdificioPorNome(@PathVariable String nome){
+            return edificioService.buscarEdificioPorNome(nome);
+        }
 	
 }
