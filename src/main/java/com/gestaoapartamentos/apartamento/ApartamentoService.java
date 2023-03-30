@@ -1,4 +1,4 @@
-package com.gestaoapartamentos.services;
+package com.gestaoapartamentos.apartamento;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,10 +7,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import com.gestaoapartamentos.dto.ApartamentoDto;
-import com.gestaoapartamentos.entities.Apartamento;
-import com.gestaoapartamentos.repositories.ApartamentoRepository;
 
 @Service
 public class ApartamentoService {

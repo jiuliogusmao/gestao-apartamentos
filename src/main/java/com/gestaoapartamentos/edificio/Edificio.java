@@ -1,10 +1,11 @@
-package com.gestaoapartamentos.entities;
+package com.gestaoapartamentos.edificio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.gestaoapartamentos.apartamento.Apartamento;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
