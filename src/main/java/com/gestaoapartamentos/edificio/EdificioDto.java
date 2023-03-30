@@ -1,9 +1,8 @@
-package com.gestaoapartamentos.dto;
+package com.gestaoapartamentos.edificio;
 
 import java.util.List;
 
-import com.gestaoapartamentos.entities.Apartamento;
-import com.gestaoapartamentos.entities.Edificio;
+import com.gestaoapartamentos.apartamento.Apartamento;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,9 +1,11 @@
-package com.gestaoapartamentos.entities;
+package com.gestaoapartamentos.apartamento;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.gestaoapartamentos.edificio.Edificio;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
