@@ -23,16 +23,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity //configuração personalizada
 public class SecurityConfig {
     
-    @Bean //serve para exportar uma classe para o Spring, para que ele consiga carregá-la e realize sua injeção de dependência em outras classes
+    @Bean //Um Bean serve para exportar uma classe para o Spring, para que ele consiga carregá-la e realize sua injeção de dependência em outras classes
     //configuração do processo de autenticação (Stateless)
     public SecurityFilterChain securityFilterChain(HttpSecurity http)throws Exception{
-    //desabilita a proteção contra ataques tipo cross-site request forgery, como será usado o token manter essa proteção habilitada é reduntante
+    //desabilita a proteção contra ataques tipo cross-site request forgery. Como será usado o token, manter essa proteção habilitada é reduntante.
         return http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //desabilita o formulário statefull do spring e configura stateless
                 .and().build();
     }
     
-    @Bean //instancia um objeto AuthenticationManager
+    @Bean //instancia um objeto AuthenticationManager responsável por processar a autenticação de um objeto passado.
     public AuthenticationManager authenticationmanager(AuthenticationConfiguration configuration) throws Exception{
         return configuration.getAuthenticationManager();
     }

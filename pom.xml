@@ -79,7 +79,13 @@
 	  <groupId>com.auth0</groupId>
 	  <artifactId>java-jwt</artifactId>
 	  <version>4.3.0</version>
-	  <scope>runtime</scope>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>org.openjfx</groupId>
+	  <artifactId>javafx-graphics</artifactId>
+	  <version>17</version>
+	  <type>jar</type>
 	 </dependency>
 	</dependencies>
 	<build>

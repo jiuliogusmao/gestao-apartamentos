@@ -4,6 +4,8 @@
  */
 package com.gestaoapartamentos.usuario;
 
+import com.gestaoapartamentos.security.TokenDto;
+import com.gestaoapartamentos.security.TokenService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +28,17 @@ public class AutenticacaoController {
     @Autowired
     private AuthenticationManager manager;
     
+    @Autowired
+    private TokenService tokenService;
+    
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid AutenticacaoDto autenticacaoDto){
-        var token = new UsernamePasswordAuthenticationToken(autenticacaoDto.login(), autenticacaoDto.senha());
-        var authentication = manager.authenticate(token);
+        var authenticationToken = new UsernamePasswordAuthenticationToken(autenticacaoDto.login(), autenticacaoDto.senha());
+        var authentication = manager.authenticate(authenticationToken);
         
-        return ResponseEntity.ok().build();
+        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        
+        return ResponseEntity.ok(new TokenDto(tokenJWT));
     }
     
 }
