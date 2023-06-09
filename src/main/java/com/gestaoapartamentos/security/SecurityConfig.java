@@ -4,8 +4,11 @@
  */
 package com.gestaoapartamentos.security;
 
+import static java.util.Locale.filter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  *
@@ -23,13 +27,20 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity //configuração personalizada
 public class SecurityConfig {
     
+    @Autowired
+    private SecurityFilter securityFilter;
+    
     @Bean //Um Bean serve para exportar uma classe para o Spring, para que ele consiga carregá-la e realize sua injeção de dependência em outras classes
     //configuração do processo de autenticação (Stateless)
     public SecurityFilterChain securityFilterChain(HttpSecurity http)throws Exception{
     //desabilita a proteção contra ataques tipo cross-site request forgery. Como será usado o token, manter essa proteção habilitada é reduntante.
         return http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) //desabilita o formulário statefull do spring e configura stateless
-                .and().build();
+                .and().authorizeHttpRequests()
+                .requestMatchers(HttpMethod.POST, "/api/v1/login").permitAll()
+                .anyRequest().authenticated()
+                .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
     }
     
     @Bean //instancia um objeto AuthenticationManager responsável por processar a autenticação de um objeto passado.

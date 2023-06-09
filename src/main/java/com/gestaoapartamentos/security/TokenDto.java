@@ -8,7 +8,7 @@ package com.gestaoapartamentos.security;
  *
  * @author jiulio
  */
-public record TokenDto (String token) {
+public record TokenDto (String tokenJWT) {
 
     
 }
