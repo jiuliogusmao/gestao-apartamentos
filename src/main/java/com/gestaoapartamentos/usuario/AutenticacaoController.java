@@ -21,7 +21,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
  * @author jiulio
  */
 @RestController
-@RequestMapping("api/v1/login")
+@RequestMapping("/api/v1/login")
 public class AutenticacaoController {
     
     //classe do próprio Spring que dispara o processo de autenticação, chama a classe AutenticacaoService
