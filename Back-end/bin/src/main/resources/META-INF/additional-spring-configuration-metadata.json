@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "hibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.dialect'"
+  },
+  {
+    "name": "hibernate.connection.driver_class",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.connection.driver_class'"
+  },
+  {
+    "name": "hibernate.connection.username",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.connection.username'"
+  },
+  {
+    "name": "hibernate.connection.url",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.connection.url'"
+  },
+  {
+    "name": "hibernate.connection.password",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.connection.password'"
+  },
+  {
+    "name": "hibernate.show_sql",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.show_sql'"
+  },
+  {
+    "name": "hibernate.format_sql",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.format_sql'"
+  }
+]}
