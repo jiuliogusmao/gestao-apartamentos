@@ -30,4 +30,31 @@ public class EdificioDto {
 		this.numeroAndares = edificio.getNumeroAndares();
 		this.apartamentos = edificio.getApartamentos();
 		}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public int getNumeroApartamentos() {
+		return numeroApartamentos;
+	}
+
+	public int getNumeroAndares() {
+		return numeroAndares;
+	}
+
+	public List<Apartamento> getApartamentos() {
+		return apartamentos;
+	}
+
+
+	
 }
